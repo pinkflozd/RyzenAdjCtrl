@@ -474,6 +474,67 @@ bool CtrlSettings::savePresets() {
                 xmlWriter.writeAttribute("value", QString::number(presets->at(i)->cogfxChecked));
             xmlWriter.writeEndElement();
 
+            xmlWriter.writeStartElement("vrmSocCurrent");
+                xmlWriter.writeAttribute("value", QString::number(presets->at(i)->vrmSocCurrent));
+            xmlWriter.writeEndElement();
+            xmlWriter.writeStartElement("vrmSocCurrentChecked");
+                xmlWriter.writeAttribute("value", QString::number(presets->at(i)->vrmSocCurrentChecked));
+            xmlWriter.writeEndElement();
+            xmlWriter.writeStartElement("vrmSocMax");
+                xmlWriter.writeAttribute("value", QString::number(presets->at(i)->vrmSocMax));
+            xmlWriter.writeEndElement();
+            xmlWriter.writeStartElement("vrmSocMaxChecked");
+                xmlWriter.writeAttribute("value", QString::number(presets->at(i)->vrmSocMaxChecked));
+            xmlWriter.writeEndElement();
+            xmlWriter.writeStartElement("psi0Current");
+                xmlWriter.writeAttribute("value", QString::number(presets->at(i)->psi0Current));
+            xmlWriter.writeEndElement();
+            xmlWriter.writeStartElement("psi0CurrentChecked");
+                xmlWriter.writeAttribute("value", QString::number(presets->at(i)->psi0CurrentChecked));
+            xmlWriter.writeEndElement();
+            xmlWriter.writeStartElement("psi0SocCurrent");
+                xmlWriter.writeAttribute("value", QString::number(presets->at(i)->psi0SocCurrent));
+            xmlWriter.writeEndElement();
+            xmlWriter.writeStartElement("psi0SocCurrentChecked");
+                xmlWriter.writeAttribute("value", QString::number(presets->at(i)->psi0SocCurrentChecked));
+            xmlWriter.writeEndElement();
+            xmlWriter.writeStartElement("maxLclk");
+                xmlWriter.writeAttribute("value", QString::number(presets->at(i)->maxLclk));
+            xmlWriter.writeEndElement();
+            xmlWriter.writeStartElement("maxLclkChecked");
+                xmlWriter.writeAttribute("value", QString::number(presets->at(i)->maxLclkChecked));
+            xmlWriter.writeEndElement();
+            xmlWriter.writeStartElement("minLclk");
+                xmlWriter.writeAttribute("value", QString::number(presets->at(i)->minLclk));
+            xmlWriter.writeEndElement();
+            xmlWriter.writeStartElement("minLclkChecked");
+                xmlWriter.writeAttribute("value", QString::number(presets->at(i)->minLclkChecked));
+            xmlWriter.writeEndElement();
+            xmlWriter.writeStartElement("prochotDeassertionRamp");
+                xmlWriter.writeAttribute("value", QString::number(presets->at(i)->prochotDeassertionRamp));
+            xmlWriter.writeEndElement();
+            xmlWriter.writeStartElement("prochotDeassertionRampChecked");
+                xmlWriter.writeAttribute("value", QString::number(presets->at(i)->prochotDeassertionRampChecked));
+            xmlWriter.writeEndElement();
+            xmlWriter.writeStartElement("dgpuSkinTempLimit");
+                xmlWriter.writeAttribute("value", QString::number(presets->at(i)->dgpuSkinTempLimit));
+            xmlWriter.writeEndElement();
+            xmlWriter.writeStartElement("dgpuSkinTempLimitChecked");
+                xmlWriter.writeAttribute("value", QString::number(presets->at(i)->dgpuSkinTempLimitChecked));
+            xmlWriter.writeEndElement();
+            xmlWriter.writeStartElement("apuSlowLimit");
+                xmlWriter.writeAttribute("value", QString::number(presets->at(i)->apuSlowLimit));
+            xmlWriter.writeEndElement();
+            xmlWriter.writeStartElement("apuSlowLimitChecked");
+                xmlWriter.writeAttribute("value", QString::number(presets->at(i)->apuSlowLimitChecked));
+            xmlWriter.writeEndElement();
+            xmlWriter.writeStartElement("skinTempPowerLimit");
+                xmlWriter.writeAttribute("value", QString::number(presets->at(i)->skinTempPowerLimit));
+            xmlWriter.writeEndElement();
+            xmlWriter.writeStartElement("skinTempPowerLimitChecked");
+                xmlWriter.writeAttribute("value", QString::number(presets->at(i)->skinTempPowerLimitChecked));
+            xmlWriter.writeEndElement();
+
         xmlWriter.writeEndElement();
     }
     //
@@ -840,6 +901,116 @@ bool CtrlSettings::openPresets(){
             foreach(const QXmlStreamAttribute &attr, xmlReader.attributes()){
                 if (attr.name().toString() == "value")
                     presetReadBuffer->cogfxChecked = attr.value().toString().toInt();
+            }else{}
+
+        if (xmlReader.name() == QString("vrmSocCurrent"))
+            foreach(const QXmlStreamAttribute &attr, xmlReader.attributes()){
+                if (attr.name().toString() == "value")
+                    presetReadBuffer->vrmSocCurrent = attr.value().toString().toInt();
+            }else{}
+        if (xmlReader.name() == QString("vrmSocCurrentChecked"))
+            foreach(const QXmlStreamAttribute &attr, xmlReader.attributes()){
+                if (attr.name().toString() == "value")
+                    presetReadBuffer->vrmSocCurrentChecked = attr.value().toString().toInt();
+            }else{}
+
+        if (xmlReader.name() == QString("vrmSocMax"))
+            foreach(const QXmlStreamAttribute &attr, xmlReader.attributes()){
+                if (attr.name().toString() == "value")
+                    presetReadBuffer->vrmSocMax = attr.value().toString().toInt();
+            }else{}
+        if (xmlReader.name() == QString("vrmSocMaxChecked"))
+            foreach(const QXmlStreamAttribute &attr, xmlReader.attributes()){
+                if (attr.name().toString() == "value")
+                    presetReadBuffer->vrmSocMaxChecked = attr.value().toString().toInt();
+            }else{}
+
+        if (xmlReader.name() == QString("psi0Current"))
+            foreach(const QXmlStreamAttribute &attr, xmlReader.attributes()){
+                if (attr.name().toString() == "value")
+                    presetReadBuffer->psi0Current = attr.value().toString().toInt();
+            }else{}
+        if (xmlReader.name() == QString("psi0CurrentChecked"))
+            foreach(const QXmlStreamAttribute &attr, xmlReader.attributes()){
+                if (attr.name().toString() == "value")
+                    presetReadBuffer->psi0CurrentChecked = attr.value().toString().toInt();
+            }else{}
+
+        if (xmlReader.name() == QString("psi0SocCurrent"))
+            foreach(const QXmlStreamAttribute &attr, xmlReader.attributes()){
+                if (attr.name().toString() == "value")
+                    presetReadBuffer->psi0SocCurrent = attr.value().toString().toInt();
+            }else{}
+        if (xmlReader.name() == QString("psi0SocCurrentChecked"))
+            foreach(const QXmlStreamAttribute &attr, xmlReader.attributes()){
+                if (attr.name().toString() == "value")
+                    presetReadBuffer->psi0SocCurrentChecked = attr.value().toString().toInt();
+            }else{}
+
+        if (xmlReader.name() == QString("maxLclk"))
+            foreach(const QXmlStreamAttribute &attr, xmlReader.attributes()){
+                if (attr.name().toString() == "value")
+                    presetReadBuffer->maxLclk = attr.value().toString().toInt();
+            }else{}
+        if (xmlReader.name() == QString("maxLclkChecked"))
+            foreach(const QXmlStreamAttribute &attr, xmlReader.attributes()){
+                if (attr.name().toString() == "value")
+                    presetReadBuffer->maxLclkChecked = attr.value().toString().toInt();
+            }else{}
+
+        if (xmlReader.name() == QString("minLclk"))
+            foreach(const QXmlStreamAttribute &attr, xmlReader.attributes()){
+                if (attr.name().toString() == "value")
+                    presetReadBuffer->minLclk = attr.value().toString().toInt();
+            }else{}
+        if (xmlReader.name() == QString("minLclkChecked"))
+            foreach(const QXmlStreamAttribute &attr, xmlReader.attributes()){
+                if (attr.name().toString() == "value")
+                    presetReadBuffer->minLclkChecked = attr.value().toString().toInt();
+            }else{}
+
+        if (xmlReader.name() == QString("prochotDeassertionRamp"))
+            foreach(const QXmlStreamAttribute &attr, xmlReader.attributes()){
+                if (attr.name().toString() == "value")
+                    presetReadBuffer->prochotDeassertionRamp = attr.value().toString().toInt();
+            }else{}
+        if (xmlReader.name() == QString("prochotDeassertionRampChecked"))
+            foreach(const QXmlStreamAttribute &attr, xmlReader.attributes()){
+                if (attr.name().toString() == "value")
+                    presetReadBuffer->prochotDeassertionRampChecked = attr.value().toString().toInt();
+            }else{}
+
+        if (xmlReader.name() == QString("dgpuSkinTempLimit"))
+            foreach(const QXmlStreamAttribute &attr, xmlReader.attributes()){
+                if (attr.name().toString() == "value")
+                    presetReadBuffer->dgpuSkinTempLimit = attr.value().toString().toInt();
+            }else{}
+        if (xmlReader.name() == QString("dgpuSkinTempLimitChecked"))
+            foreach(const QXmlStreamAttribute &attr, xmlReader.attributes()){
+                if (attr.name().toString() == "value")
+                    presetReadBuffer->dgpuSkinTempLimitChecked = attr.value().toString().toInt();
+            }else{}
+
+        if (xmlReader.name() == QString("apuSlowLimit"))
+            foreach(const QXmlStreamAttribute &attr, xmlReader.attributes()){
+                if (attr.name().toString() == "value")
+                    presetReadBuffer->apuSlowLimit = attr.value().toString().toInt();
+            }else{}
+        if (xmlReader.name() == QString("apuSlowLimitChecked"))
+            foreach(const QXmlStreamAttribute &attr, xmlReader.attributes()){
+                if (attr.name().toString() == "value")
+                    presetReadBuffer->apuSlowLimitChecked = attr.value().toString().toInt();
+            }else{}
+
+        if (xmlReader.name() == QString("skinTempPowerLimit"))
+            foreach(const QXmlStreamAttribute &attr, xmlReader.attributes()){
+                if (attr.name().toString() == "value")
+                    presetReadBuffer->skinTempPowerLimit = attr.value().toString().toInt();
+            }else{}
+        if (xmlReader.name() == QString("skinTempPowerLimitChecked"))
+            foreach(const QXmlStreamAttribute &attr, xmlReader.attributes()){
+                if (attr.name().toString() == "value")
+                    presetReadBuffer->skinTempPowerLimitChecked = attr.value().toString().toInt();
             }else{}
         //
         xmlReader.readNext();
